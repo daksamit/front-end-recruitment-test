@@ -76,4 +76,13 @@
   }
 
   // Your custom JavaScript goes here
+  const addBaconBtn = document.querySelector('#overview button[action=button]');
+  const baconSection = document.querySelectorAll('#overview section')[1];
+
+  const onAddBacon = () => {
+    const baconImg = baconSection.querySelector('img');
+    baconSection.appendChild(baconImg.cloneNode(true));
+  };
+
+  addBaconBtn.addEventListener('click', onAddBacon);
 })();
