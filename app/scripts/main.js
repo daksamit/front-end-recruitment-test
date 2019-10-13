@@ -79,10 +79,16 @@
   const addBaconBtn = document.querySelector('#overview button[action=button]');
   const baconSection = document.querySelectorAll('#overview section')[1];
 
-  const onAddBacon = () => {
-    const baconImg = baconSection.querySelector('img');
-    baconSection.appendChild(baconImg.cloneNode(true));
-  };
-
-  addBaconBtn.addEventListener('click', onAddBacon);
+  if (addBaconBtn && baconSection) {
+    const onAddBacon = () => {
+      try {
+        const baconImg = baconSection.querySelector('imgs');
+        baconSection.appendChild(baconImg.cloneNode(true));
+      } catch (err) {
+        // handle clone image issues, e.g. alert(), etc...
+        addBaconBtn.removeEventListener('click', onAddBacon);
+      }
+    };
+    addBaconBtn.addEventListener('click', onAddBacon);
+  }
 })();
