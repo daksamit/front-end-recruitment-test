@@ -92,25 +92,25 @@
                 <div class="mdl-grid mdl-grid--no-spacing">
                   <div class="mdl-cell mdl-cell--6-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="firstname" placeholder="Elon">
+                      <input class="mdl-textfield__input" type="text" id="firstname" placeholder="Elon" data-validation="required">
                       <label class="mdl-textfield__label" for="firstname">First name</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="lastname" placeholder="Musk">
+                      <input class="mdl-textfield__input" type="text" id="lastname" placeholder="Musk" data-validation="required">
                       <label class="mdl-textfield__label" for="lastname">Last name</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="email" placeholder="elon@spacex.com">
+                      <input class="mdl-textfield__input" type="text" id="email" placeholder="elon@spacex.com" data-validation="required">
                       <label class="mdl-textfield__label" for="email">Email</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <select class="mdl-textfield__input" name="country" id="country">
+                      <select class="mdl-textfield__input" name="country" id="country" data-validation="required">
                         <option value="United States">United States</option>
                         <option value="Poland">Poland</option>
                       </select>
@@ -120,13 +120,13 @@
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="postalcode" placeholder="10001">
+                      <input class="mdl-textfield__input" type="text" id="postalcode" placeholder="10001" data-validation="required">
                       <label class="mdl-textfield__label" for="postalcode">Postal Code</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="phonenumber" placeholder="(212) 692-93-92">
+                      <input class="mdl-textfield__input" type="text" id="phonenumber" placeholder="(212) 692-93-92" data-validation="required">
                       <label class="mdl-textfield__label" for="phonenumber">Phone Number</label>
                     </div>
                   </div>
@@ -139,24 +139,28 @@
                 <div class="mdl-grid mdl-grid--no-spacing">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="creditcardnumber"
-                        placeholder="0000 — 0000 — 0000 — 0000">
+                      <input class="mdl-textfield__input" type="text" id="creditcardnumber" placeholder="0000 — 0000 — 0000 — 0000" data-validation="required">
                       <label class="mdl-textfield__label" for="creditcardnumber">Credit Card Number</label>
                       <i class="icon-visa"></i>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="number" id="securitycode" placeholder="***"
-                        maxlength="3">
+                      <input class="mdl-textfield__input" type="number" id="securitycode" placeholder="***" data-validation="required len-3">
                       <label class="mdl-textfield__label" for="securitycode">Security code</label>
                       <i class="icon-question-mark material-icons">help_outline</i>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="expirationdate" placeholder="MM / YY">
+                      <input class="mdl-textfield__input" type="text" id="expirationdate" placeholder="MM / YY" data-validation="required">
                       <label class="mdl-textfield__label" for="expirationdate">Expiration date</label>
+                    </div>
+                  </div>
+                  <div class="mdl-cell mdl-cell--12-col">
+                    <div id="form-submit-toast" class="mdl-js-snackbar mdl-snackbar">
+                      <div class="mdl-snackbar__text"></div>
+                      <button class="mdl-snackbar__action" type="button"></button>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -165,12 +169,6 @@
                       <i class="icon-checkout-cart material-icons">shopping_cart</i>
                       Complete purchase
                     </button>
-                  </div>
-                  <div class="mdl-cell mdl-cell--12-col">
-                    <div id="form-submit-toast" class="mdl-js-snackbar mdl-snackbar">
-                      <div class="mdl-snackbar__text"></div>
-                      <button class="mdl-snackbar__action" type="button"></button>
-                    </div>
                   </div>
                 </div>
               </fieldset>

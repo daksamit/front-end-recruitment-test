@@ -91,4 +91,51 @@
     };
     addBaconBtn.addEventListener('click', onAddBacon);
   }
+
+  // checkout form simple js validation...
+  const form = document.getElementById('checkout-form');
+  const snackbarContainer = document.querySelector('#form-submit-toast');
+  if (form) {
+    const validation = {
+      'required': {
+        message: (field) => `Field '${field}' is required`,
+        valid: (val) => val && val.length,
+      },
+      'len-3': {
+        message: (field) => `Field '${field}' should have exactly 3 characters`,
+        valid: (val) => val.length === 3,
+      },
+    };
+
+    const getErrors = (field) => {
+      const rules = field.dataset.validation.split(' ');
+      const id = field.getAttribute('id');
+      const label = form.querySelector(`[for=${id}]`);
+      if (!id || !label || !label.innerText) {
+        console.error('missing id or label for field:', field);
+      }
+      const errors = rules.map((ruleName) => {
+        const rule = validation[ruleName];
+        return !rule.valid(field.value)
+          ? {message: rule.message(label && label.innerText || id)}
+          : null;
+      });
+      return errors.filter((v) => v);
+    };
+
+    const validateForm = () => {
+      const fields = [...form.querySelectorAll('input,select,textarea')];
+      const errors = fields.flatMap(getErrors);
+      const data = errors.length > 0
+        ? {message: errors[0].message, timeout: 1100}
+        : {message: 'Success!'};
+      snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    };
+
+    const onSubmit = (e) => {
+      e.preventDefault();
+      validateForm();
+    };
+    form.addEventListener('submit', onSubmit, true);
+  }
 })();
